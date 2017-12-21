@@ -6,7 +6,7 @@
 #    By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 21:34:53 by vlay              #+#    #+#              #
-#    Updated: 2017/12/20 21:16:37 by vlay             ###   ########.fr        #
+#    Updated: 2017/12/21 22:10:30 by vlay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,14 +34,14 @@ LIBFT_FILE = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c \
 		ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c \
 		ft_tolower.c ft_toupper.c \
-		ft_lstadd.c ft_lstdel.c \
+		ft_lstadd.c ft_lstdel.c ft_lstfilter.c \
 		ft_lstdelall.c ft_lstdelone.c \
 		ft_lstfrontbacksplit.c ft_lstiter.c \
 		ft_lstlen.c ft_lstmap.c \
 		ft_lstnew.c ft_lstpushadd.c \
 		ft_lstrev.c ft_lstrotate.c \
 		ft_lstreverserotate.c ft_lstpush.c \
-		ft_lstsnew.c \
+		ft_lstsnew.c ft_lstmergesort.c \
 		ft_dlstcut.c \
 		ft_clstadd.c \
 		ft_dtoa.c ft_intlen.c \

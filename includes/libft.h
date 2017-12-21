@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:06:53 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/20 21:13:34 by vlay             ###   ########.fr       */
+/*   Updated: 2017/12/21 22:10:04 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ void				ft_lstfrontbacksplit(t_list *source,
 void				ft_lstdelall(t_list **list);
 void				ft_lstpush(t_list **alst, t_list *new);
 void				ft_lstinsert(t_list **alst, t_list *new, int (*cmpf)(void *, void *));
+t_list 			*ft_lstfilter(t_list *list, int (*f)(t_list *elem), void (*del)(void *, size_t));
+void				ft_lstmergesort(t_list **list, int (*cmpf)(void *, void *));
 
 void				ft_dlstcut(t_list *list);
 

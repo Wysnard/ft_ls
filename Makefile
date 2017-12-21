@@ -6,7 +6,7 @@
 #    By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 21:06:30 by vlay              #+#    #+#              #
-#    Updated: 2017/12/20 21:22:12 by vlay             ###   ########.fr        #
+#    Updated: 2017/12/21 20:48:14 by vlay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,11 @@ SRC_FILE = main.c \
 					stat.c \
 					strmod.c \
 					print.c \
-					space.c
+					space.c \
+					link.c \
+					error.c \
+					lstdir.c \
+					total.c
 
 SRC = $(SRC_FILE:%.c=$(SRC_PATH)%.c)
 

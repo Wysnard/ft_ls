@@ -8,12 +8,15 @@
 # include <time.h>
 # include <pwd.h>
 # include <grp.h>
+# include <errno.h>
 
-# define OPT "lRart"
+# define OPT "lRartf"
 # define LCONT(L) ((t_ls *)L->content )
+# define OPENERR "ls: cannot open directory '"
 
 typedef struct	s_ls
 {
+	char	*path;
 	off_t	space;
 	unsigned	link;
 	struct dirent	*dir;
@@ -29,6 +32,12 @@ int	ft_lstsorttime(void *s1, void *s2);
 struct dirent	*ft_direntdup(struct dirent *dir);
 struct stat	*ft_statcpy(char *path, unsigned char d_type);
 void	ft_getspace(t_list *list);
+int	ft_openerr(const char *path, char *opt);
+int	ft_lstdir(t_list *list);
+int	ft_lstdirl(t_list *list);
+size_t	ft_total(t_list *list);
+void	ft_lstinserttime(t_list **alst, t_list *new);
+void	ft_dolnk(t_list *elem);
 
 void	ft_ls(const char *path, char *opt);
 
