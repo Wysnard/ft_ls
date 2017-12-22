@@ -65,28 +65,26 @@ void	ft_ls(const char *path, char *opt)
 	list = NULL;
 	while ((dir = readdir(fd)))
 	{
-		if (ft_strchr(opt, 'f'))
+		if (*dir->d_name != '.' || ft_strchr(opt, 'a') || ft_strchr(opt, 'f'))
 		{
 			ft_lstpushadd(&list, ft_lstsnew(
 				ft_registerls(dir, keep = ft_strmultijoin(3, path, "/", dir->d_name), opt)
 				, sizeof(*dir)));
 			free(keep);
 		}
-		else if (*dir->d_name != '.' || ft_strchr(opt, 'a'))
-		{
-			ft_lstinsert(&list, ft_lstsnew(
-				ft_registerls(dir, keep = ft_strmultijoin(3, path, "/", dir->d_name), opt), sizeof(*dir)), &ft_lstcompare);
-			free(keep);
-		}
 	}
 	if (ft_strchr(opt, 'R') && ft_strcmp(path, "."))
 		ft_printf("%s:\n", path);
-	if (ft_strchr(opt, 't'))
-		ft_lstmergesort(&list, &ft_lstsorttime);
+	if (!ft_strchr(opt, 'f'))
+		(ft_strchr(opt, 't')) ?
+		ft_lstmergesort(&list, &ft_lstsorttime) : ft_lstmergesort(&list, &ft_lstcompare);
 	if (ft_strchr(opt, 'r'))
 		ft_lstrev(&list);
 	if (ft_strchr(opt, 'l') && ft_printf("total %u\n", ft_total(list)))
+	{
 		ft_getspace(list);
+		ft_usrspace(list);
+	}
 	list = ft_lstfilter(list, (ft_strchr(opt, 'l')) ? &ft_lstdirl : &ft_lstdir, &ft_lstd);
 	ft_rec(path, &list, opt);
 	if (list)

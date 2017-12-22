@@ -13,11 +13,14 @@
 # define OPT "lRartf"
 # define LCONT(L) ((t_ls *)L->content )
 # define OPENERR "ls: cannot open directory '"
+# define MAX_LINKSIZE 4096
 
 typedef struct	s_ls
 {
 	char	*path;
 	off_t	space;
+	size_t	lengrp;
+	size_t	lenusr;
 	unsigned	link;
 	struct dirent	*dir;
 	struct stat	*st;
@@ -38,6 +41,8 @@ int	ft_lstdirl(t_list *list);
 size_t	ft_total(t_list *list);
 void	ft_lstinserttime(t_list **alst, t_list *new);
 void	ft_dolnk(t_list *elem);
+void	ft_usrspace(t_list *list);
+int	ft_category(char *path);
 
 void	ft_ls(const char *path, char *opt);
 

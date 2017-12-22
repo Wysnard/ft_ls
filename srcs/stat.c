@@ -8,6 +8,8 @@ struct stat	*ft_statcpy(char *path, unsigned char d_type)
 	(d_type == DT_LNK) ? lstat(path, &st) : stat(path, &st);
 	if (!(cp = (struct stat *)malloc(sizeof(struct stat))))
 		exit(EXIT_FAILURE);
+	cp->st_dev = st.st_dev;
+	cp->st_rdev = st.st_rdev;
 	cp->st_mode = st.st_mode;
 	cp->st_nlink = st.st_nlink;
 	cp->st_uid = st.st_uid;
