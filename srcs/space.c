@@ -39,25 +39,28 @@ void	ft_usrspace(t_list *list)
 
 	if (!(tmp = list))
 		return ;
-	pw = getpwuid(LCONT(list)->st->st_uid);
-	grp = getgrgid(pw->pw_gid);
-	lenusr = ft_strlen(pw->pw_name);
-	lengrp = ft_strlen(grp->gr_name);
+	lenusr = 0;
+	lengrp = 0;
 	while (tmp)
 	{
 		pw = getpwuid(LCONT(tmp)->st->st_uid);
-		grp = getgrgid(pw->pw_gid);
-		if (lenusr < ft_strlen(pw->pw_name))
-			lenusr = ft_strlen(pw->pw_name);
-		if (lengrp < ft_strlen(grp->gr_name))
-			lengrp = ft_strlen(grp->gr_name);
+		// printf("pw = %u\n", LCONT(tmp)->st->st_uid);
+		if (pw && (grp = getgrgid(pw->pw_gid)))
+		{
+			if (lenusr < ft_strlen(pw->pw_name))
+				lenusr = ft_strlen(pw->pw_name);
+			if (lengrp < ft_strlen(grp->gr_name))
+				lengrp = ft_strlen(grp->gr_name);
+		}
+		else if (lenusr < ft_uintlen(LCONT(tmp)->st->st_uid, 10))
+			lenusr = ft_uintlen(LCONT(tmp)->st->st_uid, 10);
 		tmp = tmp->next;
 	}
 	tmp = list;
 	while (tmp)
 	{
 		LCONT(tmp)->lenusr = lenusr;
-		LCONT(tmp)->lengrp = lengrp;
+		LCONT(tmp)->lengrp = (lengrp) ? lengrp : ft_strlen("_lpoperator");
 		tmp = tmp->next;
 	}
 }

@@ -8,7 +8,7 @@ int	ft_category(char *path)
 
 	category = 1;
 	if (!(fd = opendir(path)))
-		return (-1);
+		return ((errno == ENOENT) ? -2 : -1);
 	dir = readdir(fd);
 	category = (dir->d_type == DT_DIR) ?
 	1 : 0;

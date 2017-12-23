@@ -28,7 +28,7 @@ t_ls	*ft_registerls(struct dirent *dir, char *path, char *opt)
 	return (ls);
 }
 
-static	void ft_rec(const char *path, t_list **list, char *opt)
+void ft_rec(const char *path, t_list **list, char *opt)
 {
 	char	*keep;
 	t_list	*next;
@@ -53,6 +53,18 @@ static	void ft_rec(const char *path, t_list **list, char *opt)
 	}
 }
 
+void	ft_lsfile(const char *path, char *opt, t_lsfile file)
+{
+	(void)file;
+	struct stat	st;
+	if (!ft_strchr(opt, 'l'))
+		ft_printf("%s\n", path);
+	else
+	{
+		lstat(path, &st);
+	}
+}
+
 void	ft_ls(const char *path, char *opt)
 {
 	t_list	*list;
@@ -60,11 +72,14 @@ void	ft_ls(const char *path, char *opt)
 	struct dirent	*dir;
 	char	*keep;
 
-	if (!(fd = opendir(path)) && ft_openerr(path, opt))
+	// (void)opt;
+	if (!(fd = opendir(path)))
+	{
+		ft_openerr(path, opt);
 		return ;
+	}
 	list = NULL;
 	while ((dir = readdir(fd)))
-	{
 		if (*dir->d_name != '.' || ft_strchr(opt, 'a') || ft_strchr(opt, 'f'))
 		{
 			ft_lstpushadd(&list, ft_lstsnew(
@@ -72,7 +87,6 @@ void	ft_ls(const char *path, char *opt)
 				, sizeof(*dir)));
 			free(keep);
 		}
-	}
 	if (ft_strchr(opt, 'R') && ft_strcmp(path, "."))
 		ft_printf("%s:\n", path);
 	if (!ft_strchr(opt, 'f'))
