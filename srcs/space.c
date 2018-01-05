@@ -14,7 +14,7 @@ void	ft_getspace(t_list *list)
 	{
 		if (LCONT(tmp)->st->st_nlink > link)
 			link = LCONT(tmp)->st->st_nlink;
-		if (LCONT(tmp)->dir->d_type == DT_BLK || LCONT(tmp)->dir->d_type == DT_CHR)
+		if ((LCONT(tmp)->st->st_mode & S_IFMT) == S_IFBLK || (LCONT(tmp)->st->st_mode & S_IFMT) == S_IFCHR)
 			maxsize = 90000000;
 		else if (LCONT(tmp)->st->st_size > maxsize)
 			maxsize = LCONT(tmp)->st->st_size;
@@ -60,7 +60,7 @@ void	ft_usrspace(t_list *list)
 	while (tmp)
 	{
 		LCONT(tmp)->lenusr = lenusr;
-		LCONT(tmp)->lengrp = (lengrp) ? lengrp : ft_strlen("_lpoperator");
+		LCONT(tmp)->lengrp = (lengrp) ? lengrp : ft_intlen(LCONT(tmp)->st->st_uid, 10);
 		tmp = tmp->next;
 	}
 }

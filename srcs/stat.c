@@ -1,11 +1,11 @@
 #include "ls.h"
 
-struct stat	*ft_statcpy(char *path, unsigned char d_type)
+struct stat	*ft_statcpy(char *path)
 {
 	struct stat	st;
 	struct stat	*cp;
 
-	(d_type == DT_LNK) ? lstat(path, &st) : stat(path, &st);
+	lstat(path, &st);
 	if (!(cp = (struct stat *)malloc(sizeof(struct stat))))
 		exit(EXIT_FAILURE);
 	cp->st_dev = st.st_dev;

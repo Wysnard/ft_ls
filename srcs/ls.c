@@ -9,7 +9,8 @@ void	ft_lstd(void *content, size_t content_size)
 		return ;
 	if (ls->path)
 		free(ls->path);
-	free(ls->dir);
+	if (ls->dir)
+		free(ls->dir);
 	if (ls->st)
 		free(ls->st);
 	free(ls);
@@ -22,9 +23,10 @@ t_ls	*ft_registerls(struct dirent *dir, char *path, char *opt)
 	(void)opt;
 	if (!(ls = (t_ls *)malloc(sizeof(*ls))))
 		return (NULL);
-	ls->path = ft_strdup(path);
-	ls->dir = ft_direntdup(dir);
-	ls->st = ft_statcpy(path, dir->d_type);
+	ls->path = (path) ? ft_strdup(path) : NULL;
+	ls->dir = (dir) ? ft_direntdup(dir) : dir;
+	ls->st = (path) ? ft_statcpy(path) : NULL;
+	ls->only = 0;
 	return (ls);
 }
 
@@ -57,12 +59,11 @@ void	ft_lsfile(const char *path, char *opt, t_lsfile file)
 {
 	(void)file;
 	struct stat	st;
+
 	if (!ft_strchr(opt, 'l'))
 		ft_printf("%s\n", path);
 	else
-	{
 		lstat(path, &st);
-	}
 }
 
 void	ft_ls(const char *path, char *opt)

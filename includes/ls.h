@@ -24,6 +24,7 @@ typedef struct	s_ls
 	unsigned	link;
 	struct dirent	*dir;
 	struct stat	*st;
+	char	only;
 }					t_ls;
 
 typedef struct	s_lsfile
@@ -35,12 +36,12 @@ typedef struct	s_lsfile
 
 void	ft_prtl(t_list *elem);
 void	ft_prtlst(t_list *elem);
-char	ft_gettypec(unsigned char d_type);
+char	ft_gettypec(mode_t d_type);
 void	ft_strmod(mode_t mode, char *buf);
 int	ft_lstcompare(void *s1, void *s2);
 int	ft_lstsorttime(void *s1, void *s2);
 struct dirent	*ft_direntdup(struct dirent *dir);
-struct stat	*ft_statcpy(char *path, unsigned char d_type);
+struct stat	*ft_statcpy(char *path);
 void	ft_getspace(t_list *list);
 int	ft_openerr(const char *path, char *opt);
 int	ft_lstdir(t_list *list);
@@ -53,6 +54,11 @@ int	ft_category(char *path);
 void	ft_printfile(char *path, struct stat st, t_lsfile file);
 t_lsfile	ft_filemax(t_list *list);
 void	ft_lsfile(const char *path, char *opt, t_lsfile file);
+t_ls	*ft_registerls(struct dirent *dir, char *path, char *opt);
+void	ft_lstd(void *content, size_t content_size);
+size_t	ft_intchri(int *str, int c, size_t len);
+void	ft_initfile(t_list *elem);
+void	ft_managearg(int argc, char **argv, char *opt);
 
 void	ft_ls(const char *path, char *opt);
 

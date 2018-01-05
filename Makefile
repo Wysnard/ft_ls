@@ -6,7 +6,7 @@
 #    By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 21:06:30 by vlay              #+#    #+#              #
-#    Updated: 2017/12/23 16:50:58 by vlay             ###   ########.fr        #
+#    Updated: 2018/01/05 20:16:07 by vlay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRC_FILE = main.c \
 					lstdir.c \
 					total.c \
 					category.c \
-					file.c
+					file.c \
+					manage.c
 
 SRC = $(SRC_FILE:%.c=$(SRC_PATH)%.c)
 
