@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   category.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/06 10:36:06 by vlay              #+#    #+#             */
+/*   Updated: 2018/01/06 10:36:37 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ls.h"
 
 void	ft_initfile(t_list *elem)
@@ -5,11 +17,11 @@ void	ft_initfile(t_list *elem)
 	LCONT(elem)->only = 1;
 }
 
-int	ft_category(char *path)
+int		ft_category(char *path)
 {
-	DIR	*fd;
+	DIR				*fd;
 	struct dirent	*dir;
-	int	category;
+	int				category;
 
 	category = 1;
 	if (!(fd = opendir(path)))

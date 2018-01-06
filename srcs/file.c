@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   file.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/06 10:37:38 by vlay              #+#    #+#             */
+/*   Updated: 2018/01/06 10:38:00 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ls.h"
 
 t_lsfile	ft_filemax(t_list *list)
 {
-	t_lsfile file;
+	t_lsfile		file;
 	struct	stat	st;
 	struct	passwd	*pw;
 	struct	group	*grp;
@@ -29,7 +41,7 @@ t_lsfile	ft_filemax(t_list *list)
 	return (file);
 }
 
-char	ft_typefile(struct stat st)
+char		ft_typefile(struct stat st)
 {
 	char res;
 	mode_t mask;
@@ -47,7 +59,7 @@ char	ft_typefile(struct stat st)
 	return (res);
 }
 
-void	ft_printfile(char *path, struct stat st, t_lsfile file)
+void		ft_printfile(char *path, struct stat st, t_lsfile file)
 {
 	(void)st;
 	(void)file;

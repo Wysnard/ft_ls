@@ -28,22 +28,19 @@ void	ft_argdir(t_list *dir, char *opt)
 
 void	ft_managearg(int argc, char **argv, char *opt)
 {
-	t_list	*dir;
-	t_list	*file;
-	t_list	*error;
+	static	t_list	*dir = NULL;
+	static	t_list	*file = NULL;
 	int	i;
 	int	cat;
 
 	i = 1;
-	dir = NULL;
-	file = NULL;
-	error = NULL;
+	cat = 0;
 	while (i < argc)
 	{
-		if ((cat = ft_category(argv[i])) > 0)
+		if (*argv[i] != '-' && (cat = ft_category(argv[i])) > 0)
 			ft_lstpushadd(&dir, ft_lstsnew(
 				ft_registerls(NULL, argv[i], opt), sizeof(t_ls)));
-		else if (cat == -1)
+		else if (*argv[i] != '-' && cat == -1)
 			ft_lstpushadd(&file, ft_lstsnew(
 				ft_registerls(NULL, argv[i], opt), sizeof(t_ls)));
 		i++;
