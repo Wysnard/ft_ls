@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmergesort.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/06 11:29:55 by vlay              #+#    #+#             */
+/*   Updated: 2018/01/06 11:30:33 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static t_list	*ft_lstmerge(t_list *a, t_list *b, int (*cmpf)(void *, void *))
@@ -22,7 +34,7 @@ static t_list	*ft_lstmerge(t_list *a, t_list *b, int (*cmpf)(void *, void *))
 	return (result);
 }
 
-void	ft_lstmergesort(t_list **list, int (*cmpf)(void *, void *))
+void			ft_lstmergesort(t_list **list, int (*cmpf)(void *, void *))
 {
 	t_list	*head;
 	t_list	*a;
@@ -32,9 +44,7 @@ void	ft_lstmergesort(t_list **list, int (*cmpf)(void *, void *))
 	if (!head || !head->next)
 		return ;
 	ft_lstfrontbacksplit(head, &a, &b);
-
 	ft_lstmergesort(&a, cmpf);
 	ft_lstmergesort(&b, cmpf);
-
 	*list = ft_lstmerge(a, b, cmpf);
 }

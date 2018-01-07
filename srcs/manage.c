@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manage.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/06 10:48:44 by vlay              #+#    #+#             */
+/*   Updated: 2018/01/06 10:53:07 by vlay             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ls.h"
 
 void	ft_procarg(t_list **file, char *opt)
@@ -5,7 +17,8 @@ void	ft_procarg(t_list **file, char *opt)
 	ft_lstiter(*file, &ft_initfile);
 	if (!ft_strchr(opt, 'f'))
 		(ft_strchr(opt, 't')) ?
-		ft_lstmergesort(file, &ft_lstsorttime) : ft_lstmergesort(file, &ft_lstcompare);
+		ft_lstmergesort(file, &ft_lstsorttime)
+		: ft_lstmergesort(file, &ft_lstcompare);
 	if (ft_strchr(opt, 'r'))
 		ft_lstrev(file);
 	ft_getspace(*file);
@@ -30,11 +43,9 @@ void	ft_managearg(int argc, char **argv, char *opt)
 {
 	static	t_list	*dir = NULL;
 	static	t_list	*file = NULL;
-	int	i;
-	int	cat;
+	static	int		i = 1;
+	static	int		cat = 0;
 
-	i = 1;
-	cat = 0;
 	while (i < argc)
 	{
 		if (*argv[i] != '-' && (cat = ft_category(argv[i])) > 0)
