@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ls.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlay <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 11:33:01 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/06 11:34:42 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/07 17:47:53 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@
 # include <pwd.h>
 # include <grp.h>
 # include <errno.h>
+# include <sys/xattr.h>
 
 # define OPT "lRartf"
 # define LCONT(L) ((t_ls *)L->content)
 # define OPENERR "ls: cannot open directory '"
 # define MAX_LINKSIZE 4096
+# define XATTR_MAXSIZE 1337
 
 typedef struct		s_ls
 {
@@ -60,6 +62,7 @@ void				ft_lstd(void *content, size_t content_size);
 size_t				ft_intchri(int *str, int c, size_t len);
 void				ft_initfile(t_list *elem);
 void				ft_managearg(int argc, char **argv, char *opt);
+int					pxattr(const char *path);
 
 void				ft_ls(const char *path, char *opt);
 

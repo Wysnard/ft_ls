@@ -6,13 +6,13 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 15:47:19 by vlay              #+#    #+#             */
-/*   Updated: 2017/12/19 20:38:21 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/10 18:46:05 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_opt(int argc, char **arg, char *opt)
+char	*ft_opt(int argc, char **arg)
 {
 	int		i;
 	int		j;
@@ -20,18 +20,18 @@ char	*ft_opt(int argc, char **arg, char *opt)
 	char	save[2];
 
 	i = 0;
+	res = NULL;
 	save[1] = '\0';
-	if (!opt || !arg || !(res = ft_strnew(ft_strlen(opt))))
+	if (!arg)
 		return (NULL);
 	while (i < argc)
 	{
-		j = 1;
-		if (*arg[i] == '-')
+		j = 0;
+		if (arg && arg[i] && *arg[i] == '-')
 			while (arg[i][j])
 			{
-				if (ft_strchr(opt, arg[i][j]))
-					if (!ft_strchr(res, (save[0] = arg[i][j])))
-						ft_strcat(res, save);
+				if (!res || !ft_strchr(res, (save[0] = arg[i][j])))
+					res = ft_strjoinadd(&res, save);
 				j++;
 			}
 		i++;

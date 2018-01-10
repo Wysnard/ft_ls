@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 11:16:50 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/06 11:17:29 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/07 17:48:33 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,11 @@ void	ft_strmod(mode_t mode, char *buf)
 		i++;
 	}
 	buf[9] = '\0';
+}
+
+int	pxattr(const char *path)
+{
+	char	list[XATTR_MAXSIZE];
+
+	return (listxattr(path, list, XATTR_MAXSIZE, 0));
 }

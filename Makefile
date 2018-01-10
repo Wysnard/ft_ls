@@ -6,7 +6,7 @@
 #    By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 21:06:30 by vlay              #+#    #+#              #
-#    Updated: 2018/01/06 10:38:36 by vlay             ###   ########.fr        #
+#    Updated: 2018/01/07 18:30:21 by vlay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ SRC = $(SRC_FILE:%.c=$(SRC_PATH)%.c)
 
 OBJ = $(SRC:$(SRC_PATH)%.c=$(OBJ_PATH)%.o)
 
-all: $(NAME) $(CHECKER)
+all: $(NAME)
 
 $(NAME): $(LIBFT_PATH)$(LIBFT_NAME) $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $(OBJ) -I$(INCLUDE_PATH) -L$(LIBFT_PATH) -lft

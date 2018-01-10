@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 10:44:16 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/06 10:47:48 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/10 20:26:40 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ void	ft_rec(const char *path, t_list **list, char *opt)
 		while (*list)
 		{
 			next = (*list)->next;
-			if (LCONT((*list))->dir->d_type == DT_DIR)
+			if (LCONT((*list))->dir->d_type == DT_DIR
+			&& !ft_strequ(LCONT((*list))->dir->d_name, ".")
+			&& !ft_strequ(LCONT((*list))->dir->d_name, ".."))
 			{
 				ft_putchar('\n');
 				ft_ls(keep = ft_strmultijoin(3, path, "/",
