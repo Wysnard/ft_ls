@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 15:47:19 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/10 18:46:05 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/13 14:26:55 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_opt(int argc, char **arg)
 	char	save[2];
 
 	i = 0;
-	res = NULL;
+	res = ft_strdup("\0");
 	save[1] = '\0';
 	if (!arg)
 		return (NULL);

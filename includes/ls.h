@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 11:33:01 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/07 17:47:53 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/13 14:57:18 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_ls				*ft_registerls(struct dirent *dir, char *path, char *opt);
 void				ft_lstd(void *content, size_t content_size);
 size_t				ft_intchri(int *str, int c, size_t len);
 void				ft_initfile(t_list *elem);
-void				ft_managearg(int argc, char **argv, char *opt);
+void				ft_managearg(int argc, char **argv, char *opt, int len);
 int					pxattr(const char *path);
 
 void				ft_ls(const char *path, char *opt);

@@ -6,7 +6,7 @@
 #    By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 21:34:53 by vlay              #+#    #+#              #
-#    Updated: 2018/01/10 18:55:36 by vlay             ###   ########.fr        #
+#    Updated: 2018/01/10 20:36:23 by vlay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,8 +87,6 @@ SRC_FILE = printf.c \
 						space.c
 
 SRC = $(SRC_FILE:%.c=$(SRC_PATH)%.c)
-
-DLIST_FILE =
 
 OBJ = $(LIBFT:$(LIBFT_PATH)%.c=$(OBJ_PATH)%.o) $(SRC:$(SRC_PATH)%.c=$(OBJ_PATH)%.o)
 

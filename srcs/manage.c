@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 10:48:44 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/10 19:10:14 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/13 15:35:13 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void	ft_procarg(t_list **file, char *opt)
 	ft_usrspace(*file);
 }
 
-void	ft_argdir(t_list *dir, char *opt)
+void	ft_argdir(t_list *dir, char *opt, int len)
 {
 	ft_procarg(&dir, opt);
 	while (dir)
 	{
-		if (!ft_strchr(opt, 'R'))
+		if (len > 1)
 			ft_printf("%s:\n", LCONT(dir)->path);
 		ft_ls(LCONT(dir)->path, opt);
 		if (dir->next)
@@ -39,7 +39,7 @@ void	ft_argdir(t_list *dir, char *opt)
 	}
 }
 
-void	ft_managearg(int argc, char **argv, char *opt)
+void	ft_managearg(int argc, char **argv, char *opt, int len)
 {
 	static	t_list	*dir = NULL;
 	static	t_list	*file = NULL;
@@ -61,9 +61,10 @@ void	ft_managearg(int argc, char **argv, char *opt)
 	if (file)
 	{
 		ft_lstdel(&file, &ft_lstd);
-		ft_putchar('\n');
+		if (dir)
+			ft_putchar('\n');
 	}
-	ft_argdir(dir, opt);
+	ft_argdir(dir, opt, len);
 	if (dir)
 		ft_lstdel(&dir, &ft_lstd);
 }

@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 10:44:16 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/10 20:26:40 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/13 15:18:26 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_rec(const char *path, t_list **list, char *opt)
 
 void	ft_applyflags(const char *path, char *opt, t_list **list)
 {
-	if (ft_strchr(opt, 'R') && ft_strcmp(path, "."))
+	if (ft_strchr(opt, 'R') && ft_strchr(path, '/') && ft_strrchr(path, '/')[1] != '\0')
 		ft_printf("%s:\n", path);
 	if (!ft_strchr(opt, 'f'))
 		(ft_strchr(opt, 't')) ?

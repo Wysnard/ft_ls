@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 10:53:14 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/07 17:49:12 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/13 15:37:28 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ void	ft_prtnodevice(t_ls *ls, struct passwd *pw,
 	char	*tmp;
 
 	tmp = ft_itoa(ls->st->st_gid);
-	ft_printf("%c%s%c %*u ",
+	ft_printf("%c%s  %*u ",
 	ft_gettypec(ls->st->st_mode),
 		buf,
-		(pxattr(ls->path)) ? '@' : ' ',
 		ls->link,
 		ls->st->st_nlink);
 	(pw) ?
@@ -54,10 +53,9 @@ void	ft_prtdevice(t_ls *ls, struct passwd *pw,
 	char	*tmp;
 
 	tmp = ft_itoa(ls->st->st_gid);
-	ft_printf("%c%s%c %*u %-*s  %-*s %4u,%4u %.12s %s",
+	ft_printf("%c%s  %*u %-*s  %-*s %4u,%4u %.12s %s",
 	ft_gettypec(ls->st->st_mode),
 	buf,
-	(pxattr(ls->path)) ? '@' : ' ',
 	ls->link,
 	ls->st->st_nlink,
 	(pw) ? ls->lenusr : 0,
