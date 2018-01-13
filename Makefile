@@ -6,7 +6,7 @@
 #    By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 21:06:30 by vlay              #+#    #+#              #
-#    Updated: 2018/01/07 18:30:21 by vlay             ###   ########.fr        #
+#    Updated: 2018/01/13 17:34:05 by vlay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = ft_ls
 
 CC = gcc
 
-CFLAGS = -Werror -Wall -Wextra -Iincludes
+CFLAGS = -Werror -Wall -Wextra -Iincludes -g
 
 SRC_PATH = srcs/
 
