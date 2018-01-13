@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 10:48:44 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/13 15:35:13 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/13 15:50:54 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,18 @@ void	ft_procarg(t_list **file, char *opt)
 
 void	ft_argdir(t_list *dir, char *opt, int len)
 {
-	ft_procarg(&dir, opt);
-	while (dir)
+	t_list	*tmp;
+
+	tmp = dir;
+	ft_procarg(&tmp, opt);
+	while (tmp)
 	{
 		if (len > 1)
-			ft_printf("%s:\n", LCONT(dir)->path);
-		ft_ls(LCONT(dir)->path, opt);
-		if (dir->next)
+			ft_printf("%s:\n", LCONT(tmp)->path);
+		ft_ls(LCONT(tmp)->path, opt);
+		if (tmp->next)
 			ft_putchar('\n');
-		dir = dir->next;
+		tmp = tmp->next;
 	}
 }
 
@@ -65,6 +68,5 @@ void	ft_managearg(int argc, char **argv, char *opt, int len)
 			ft_putchar('\n');
 	}
 	ft_argdir(dir, opt, len);
-	if (dir)
-		ft_lstdel(&dir, &ft_lstd);
+	ft_lstdel(&dir, &ft_lstd);
 }

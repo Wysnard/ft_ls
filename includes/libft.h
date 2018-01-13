@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:06:53 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/10 18:55:12 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/13 15:44:35 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,10 @@ void				ft_lstfrontbacksplit(t_list *source,
 					t_list **frontref, t_list **backref);
 void				ft_lstdelall(t_list **list);
 void				ft_lstpush(t_list **alst, t_list *new);
-void				ft_lstinsert(t_list **alst, t_list *new, int (*cmpf)(void *, void *));
-t_list 			*ft_lstfilter(t_list *list, int (*f)(t_list *elem), void (*del)(void *, size_t));
+void				ft_lstinsert(t_list **alst, t_list *new,
+					int (*cmpf)(void *, void *));
+t_list				*ft_lstfilter(t_list *list, int (*f)(t_list *elem)
+					, void (*del)(void *, size_t));
 void				ft_lstmergesort(t_list **list, int (*cmpf)(void *, void *));
 
 void				ft_dlstcut(t_list *list);
@@ -186,10 +188,10 @@ void				ft_errexit(char *str);
 char				*ft_strjoinadd(char **s1, char *s2);
 void				ft_qsort(int tableau[], int begin, int end);
 char				*ft_opt(int argc, char **arg);
-char 				*ft_strmultijoin(size_t nbarg, ...);
-size_t			ft_uintlen(uintmax_t nb, unsigned base);
-size_t			ft_intchri(int *str, int c, size_t len);
-size_t 			ft_strspn(const char *s, const char *accept);
+char				*ft_strmultijoin(size_t nbarg, ...);
+size_t				ft_uintlen(uintmax_t nb, unsigned base);
+size_t				ft_intchri(int *str, int c, size_t len);
+size_t				ft_strspn(const char *s, const char *accept);
 
 void				ft_pileadd(t_pile *pile, void *info, size_t content_size);
 t_pile				*ft_pileinit(void);
