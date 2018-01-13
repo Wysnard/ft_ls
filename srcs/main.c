@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 10:48:11 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/13 15:40:38 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/13 16:59:42 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	main(int argc, char **argv)
 		(ft_morearg(argc, argv) == 0) ?
 			ft_ls(".", opt)
 			: ft_managearg(argc, argv, opt, ft_morearg(argc, argv));
-	if (opt)
-		free(opt);
+	free(opt);
 	return (0);
 }
