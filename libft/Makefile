@@ -6,7 +6,7 @@
 #    By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 21:34:53 by vlay              #+#    #+#              #
-#    Updated: 2018/01/10 20:36:23 by vlay             ###   ########.fr        #
+#    Updated: 2018/01/14 15:24:22 by vlay             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ LIBFT_FILE = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		ft_lstrev.c ft_lstrotate.c \
 		ft_lstreverserotate.c ft_lstpush.c \
 		ft_lstsnew.c ft_lstmergesort.c \
+		ft_lstbubblesort.c \
 		ft_dlstcut.c \
 		ft_clstadd.c \
 		ft_dtoa.c ft_intlen.c \

@@ -6,7 +6,7 @@
 /*   By: vlay <vlay@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 10:48:44 by vlay              #+#    #+#             */
-/*   Updated: 2018/01/13 17:10:36 by vlay             ###   ########.fr       */
+/*   Updated: 2018/01/14 15:28:04 by vlay             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_procarg(t_list **file, char *opt)
 	ft_lstiter(*file, &ft_initfile);
 	if (!ft_strchr(opt, 'f'))
 		(ft_strchr(opt, 't')) ?
-		ft_lstmergesort(file, &ft_lstsorttime)
-		: ft_lstmergesort(file, &ft_lstcompare);
+		ft_lstbubblesort(file, &ft_lstsorttime)
+		: ft_lstbubblesort(file, &ft_lstcompare);
 	if (ft_strchr(opt, 'r'))
 		ft_lstrev(file);
 	ft_getspace(*file);
